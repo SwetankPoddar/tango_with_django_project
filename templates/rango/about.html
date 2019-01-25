@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %} <!-- New line -->
 <html>
 	<head>
 		<title>About</title>
@@ -6,7 +7,7 @@
 	<body>
 		<h1>This tutorial has been put together by Swetank Poddar</h1>
 		<div>
-			<img  src="{{STATIC_URL}}about.jpg" alt="About Image"/>
+			<img  src="{% static "images/about.jpg" %}" alt="About Image"/>
 		<div>
 			<img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a cat"/>
 		</div>
