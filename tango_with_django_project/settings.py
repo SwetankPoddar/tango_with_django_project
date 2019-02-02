@@ -128,3 +128,7 @@ STATIC_URL = '/static/'
 #Media Files (dynamic file uploading)
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+# Login URL
+
+LOGIN_URL = '/rango/login/'
