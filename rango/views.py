@@ -11,7 +11,7 @@ def index(request):
 	request.session.set_test_cookie()
 	category_list = Category.objects.order_by('-likes')[:5]
 	top_5_viewed_pages = Page.objects.order_by('-views')[:5]
-	context_dict = {'categories': category_list,'top_5_viewed_pages':top_5_viewed_pages}
+	context_dict = {'categories': category_list,'pages':top_5_viewed_pages}
 
 	visitor_cookie_handler(request)
 	context_dict['visits'] = request.session['visits']
@@ -152,6 +152,7 @@ def user_login(request):
 			return HttpResponse("Invalid login details supplied.")
 	else:
 		return render(request,'rango/login.html',{})
+
 @login_required
 def restricted(request):
 	return HttpResponse("Since you're logged in, you can see this text!")
@@ -159,5 +160,4 @@ def restricted(request):
 @login_required
 def user_logout(request):
 	logout(request)
-
 	return HttpResponseRedirect(reverse('index'))
